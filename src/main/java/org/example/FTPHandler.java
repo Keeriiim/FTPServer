@@ -1,25 +1,16 @@
 package org.example;
-
-import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
-
 import java.awt.*;
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class FTPHandler {
-
     String server = "localhost";
     int port = 21;
-    String username = "Kerim";
-    String password = "Kerimadmin12";
+    String username = "";
+    String password = "";
     String virtualPath = "/upload";
-
-    // sökvägen till den lokala filen, denna funktionen heter relativ sökväg & är bättre än absolut sökväg då. Man slipper permission issues (c:/users/kerim/...) & programmet fattar vilken user man använder då den letar efter current projekt.
-    // Annat alternativ är att använda String userHome = System.getProperty("user.home");
     String localFilePath = "src/main/resources/";
     Scanner scan;
     String fileName;
@@ -249,8 +240,6 @@ public void readServerFile() {
         System.out.println("Error: " + e);
     }
 }
-
-
 
     public void uploadFileToServer(){
         this.scan = new Scanner(System.in);
